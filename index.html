@@ -446,7 +446,7 @@
     let url = "https://api.opensea.io/api/v1/assets?owner=" + currentAccount + "&asset_contract_address=0x495f947276749ce646f68ac8c248420045cb7b5e&collection=crypto-duckies";
 
 
-    fetch(url)
+    fetch(url, {headers:{'x-api-key: f546892778124cc882faacc57b10ebc6'}})
       .then(response => response.json())
       .then(data => {
         var duckieData = data['assets'];
