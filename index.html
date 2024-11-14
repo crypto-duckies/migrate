@@ -441,20 +441,17 @@
 
   function getDuckies() {
 
-    //let url = "https://testnets-api.opensea.io/api/v1/assets?owner=" + currentAccount + "&asset_contract_address=0x88B48F654c30e99bc2e4A1559b4Dcf1aD93FA656&collection=ocd-m";
-    //let url = "https://api.opensea.io/api/v1/assets?owner=" + currentAccount + "&asset_contract_address=0x922dc160f2ab743312a6bb19dd5152c1d3ecca33";
-    let url = "https://api.opensea.io/api/v1/assets?owner=" + currentAccount + "&asset_contract_address=0x495f947276749ce646f68ac8c248420045cb7b5e&collection=crypto-duckies";
+    let url = "https://api.opensea.io/api/v2/chain/ethereum/account/" + currentAccount + "/nfts?collection=crypto-duckies";
 
 
     fetch(url, {headers:{'x-api-key': 'f546892778124cc882faacc57b10ebc6'}})
       .then(response => response.json())
       .then(data => {
-        var duckieData = data['assets'];
         duckieNumbers = []
 
         document.getElementById("myDuckiesImages").innerHTML = "";
 
-        data.assets.forEach( function(obj) {
+        data.nfts.forEach( function(obj) {
           var duckieId = obj.name.slice(8);
           duckieNumbers.push(duckieId);
 
